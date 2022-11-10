@@ -1,5 +1,6 @@
 from random import randint
 from itertools import permutations
+from string import digits
 from settings import *
 
 
@@ -44,3 +45,14 @@ def generate_level() -> str:
             expressions_list = get_expressions(permutation)
             if check_expressions(expressions_list):
                 return "".join(map(str, random_numbers))
+
+
+def validate_input(user_input: str, numbers: str) -> bool:
+    digits_count = sum(c.isdigit() for c in user_input)
+    signs_count = len([c for c in user_input if c in ["+", "-", "*", "/"]])
+    if digits_count == NUMBERS_GIVEN and signs_count == NUMBERS_GIVEN - 1:
+        for digit in digits:
+            if user_input.count(digit) != numbers.count(digit):
+                return False
+        return eval(user_input) == ANSWER
+    return False
