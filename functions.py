@@ -21,3 +21,14 @@ def get_expressions(numbers: tuple[int, ...]) -> list:
                 operators_index += 1
         expressions.append(expression)
     return expressions
+
+
+def check_expressions(expressions: list) -> bool:
+    for expression in expressions:
+        try:
+            if eval(expression) == ANSWER:
+                return True
+        except ZeroDivisionError:
+            continue
+        except SyntaxError:
+            continue
