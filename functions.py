@@ -1,4 +1,5 @@
 from random import randint
+from itertools import permutations
 from settings import *
 
 
@@ -32,3 +33,14 @@ def check_expressions(expressions: list) -> bool:
             continue
         except SyntaxError:
             continue
+
+
+def generate_level() -> str:
+    while True:
+        random_numbers = generate_numbers()
+        number_permutations = set(permutations(random_numbers))
+        permutation: tuple[int, int, int, int]
+        for permutation in number_permutations:
+            expressions_list = get_expressions(permutation)
+            if check_expressions(expressions_list):
+                return "".join(map(str, random_numbers))
