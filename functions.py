@@ -2,6 +2,7 @@ from random import randint
 from itertools import permutations
 from string import digits
 from settings import *
+from json import dump
 
 
 def generate_numbers() -> tuple[int, ...]:
@@ -56,3 +57,10 @@ def validate_input(user_input: str, numbers: str) -> bool:
                 return False
         return eval(user_input) == ANSWER
     return False
+
+
+def save_changes(numbers: str):
+    if DATA['numbers'] is None:
+        DATA['numbers'] = numbers
+    with open(DATA_PATH, "w") as data_file:
+        dump(DATA, data_file)
