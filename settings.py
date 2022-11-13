@@ -7,7 +7,7 @@ ANSWER = 10
 NUMBERS_GIVEN = 4
 OPERATORS_LIST = list(product("+-*/", repeat=NUMBERS_GIVEN - 1))
 DATA_PATH = path.join(getcwd(), "data.json")
-DATA = {"score": 0}
+DATA = {"score": 0, "numbers": None}
 
 # Initialize Score
 if path.exists(DATA_PATH):
