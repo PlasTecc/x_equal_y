@@ -1,4 +1,3 @@
-from settings import DATA
 from functions import *
 
 
