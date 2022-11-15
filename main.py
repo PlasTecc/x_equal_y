@@ -1,8 +1,10 @@
-from functions import generate_numbers, validate_input, save_changes, DATA, ANSWER
+from functions import generate_numbers, validate_input, save_changes, clear_terminal
+from settings import DATA, ANSWER
 
 
 def main():
     while True:
+        clear_terminal()
         print(f"Q - QUIT\t|\tS - SKIP\t|\tSCORE: {DATA['score']}")
         numbers = "".join(map(str, generate_numbers())) if DATA['numbers'] is None else DATA['numbers']
         print(" ".join(numbers) + f" = {ANSWER}")
