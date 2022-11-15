@@ -2,7 +2,6 @@ from random import randint
 from itertools import permutations
 from string import digits
 from settings import *
-from json import dump
 
 
 def generate_numbers() -> tuple[int, ...]:
@@ -65,3 +64,7 @@ def save_changes(numbers: str):
         DATA['numbers'] = numbers
     with open(DATA_PATH, "w") as data_file:
         dump(DATA, data_file)
+
+
+def clear_terminal():
+    system("cls||clear")
