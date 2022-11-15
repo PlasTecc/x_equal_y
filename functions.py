@@ -35,6 +35,7 @@ def check_expressions(expressions: list) -> bool:
             continue
         except SyntaxError:
             continue
+    return False
 
 
 def generate_level() -> str:
