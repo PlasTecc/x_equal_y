@@ -1,5 +1,5 @@
 from itertools import product
-from os import path, getcwd
+from os import path, getcwd, system
 from json import dump, load
 
 # Variables
