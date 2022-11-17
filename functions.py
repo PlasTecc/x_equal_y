@@ -45,7 +45,7 @@ def generate_level() -> str:
         for permutation in number_permutations:
             expressions_list = get_expressions(permutation)
             if check_expressions(expressions_list):
-                return "".join(map(str, random_numbers))
+                return " ".join(map(str, random_numbers))
 
 
 def validate_input(user_input: str, numbers: str) -> bool:
@@ -62,6 +62,7 @@ def validate_input(user_input: str, numbers: str) -> bool:
 def save_changes(numbers: str):
     if DATA['numbers'] is None:
         DATA['numbers'] = numbers
+
     with open(DATA_PATH, "w") as data_file:
         dump(DATA, data_file)
 
